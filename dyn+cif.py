@@ -147,7 +147,7 @@ m83df = read_m83(f_m83) # pandas DF
 #
 # READ CIF FILE
 #
-f_cif = Path(r'D:\ED_data_PlanetEarth\2024-03_Carla_ELDICO\FINAL\CrPbSbO4_dyn_final\FINAL_ADP_cations.cif')
+
 with open(f_cif, 'r') as fh:
     Lines = fh.readlines()
 
