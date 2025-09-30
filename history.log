@@ -1,0 +1,15 @@
+30.09.2025  git
+git init
+git remote add origin https://github.com/pbklar/jana_tools.git
+git add .
+git status
+
+29.09.2025
+Command line interface
+Local installation of package
+
+28.09.2025
+Implementation of first tool in modern package structure: runtime analysis
+
+
+

@@ -1,0 +1,119 @@
+https://docs.python.org/3/howto/argparse.html#argparse-tutorial
+
+cd D:\OneDrive\CODING\Python\jana_tools2
+cd pip install -e .
+cd D:\
+jana-tools.exe runtime -p D:\ED_data_FZU\N_threads\quartz_06C\N_threads+0012.ref
+
+
+# cli/run.py
+
+
+'''
+Command line interface so that a certain tool can be called via the command line.
+
+Example:
+jana-tools runtime --path C:/path/to/jana_files
+jana-tools batcher --path C:/path/to/jana_files -thickness 1000 -thicknessmodel ...
+
+TESTING:
+ D:\OneDrive\CODING\Python\jana_tools2> python -m jana_tools.cli.run runtime -p D:\ED_data_FZU\N_threads\quartz_06C\N_threads+0012.ref
+ 
+INSTALL:
+cd D:\OneDrive\CODING\Python\jana_tools2
+pip install -e .
+'''
+
+#from dataclasses import dataclass
+
+#from jana_tools import parse_input, export_output
+
+# testing
+#args = parser.parse_args( ['runtime', '-p C:/test/'] )
+
+#$ pip install -r requirements.txt
+'''
+pip:        The command’s name
+install:    The name of a subcommand of pip
+-r:         An option of the install subcommand
+requirements.txt: An argument, specifically a parameter of the -r option
+'''
+
+
+
+##
+## Argparse Tutorial
+##
+
+
+# parser.add_argument("y", type=int, help="the exponent")
+
+# Mutually exclusive group
+#group = parser.add_mutually_exclusive_group()
+#group.add_argument("-v", "--verbose", action="store_true")
+#group.add_argument("-q", "--quiet", action="store_true")
+
+# converters
+'''
+parser.add_argument('-a', metavar='<value>', action='append',
+                    type=lambda x: ('-', x))
+parser.add_argument('+a', metavar='<value>', action='append',
+                    type=lambda x: ('+', x))
+'''
+
+
+##
+## Jacob's py3DED
+##
+
+'''
+@dataclass
+class BaseConfig:
+    _original_values: Dict[str, Any] = dataclasses.field(
+        init=False,
+        repr=False,
+        default_factory=dict
+    )
+
+    def __enter__(self, **kwargs):
+        # Store original values and update attributes with new values
+        for key, value in kwargs.items():
+            if hasattr(self, key):
+                self._original_values[key] = getattr(self, key)
+                setattr(self, key, value)
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        # Revert attributes back to their original values
+        for key, value in self._original_values.items():
+            setattr(self, key, value)
+        self._original_values.clear()
+
+    def ctx(self, **kwargs):
+        return self.__enter__(**kwargs)
+
+
+def parse_arguments(config: type(BaseConfig)):
+    """
+    Parse the command line arguments and return an instance of ConfigSingleAxis.
+
+    Returns
+    -------
+    config : BaseConfig
+        An instance of BaseConfig.
+    """
+
+    parser = argparse.ArgumentParser()
+    for field in dataclasses.fields(config):
+        if getattr(field.type, "__args__", None):
+            first_type = field.type.__args__[0]
+        else:
+            first_type = field.type
+
+        parser.add_argument(f"--{field.name}", default=field.default, type=first_type)
+
+    args = vars(parser.parse_args())
+
+    new_config = config(**args)
+    return new_config
+'''
