@@ -1,5 +1,7 @@
 # Jana Tools
-A collection of tools to read, update, write, and call files related to the software programs [Jana2020](http://jana.fzu.cz/) and [PETS2](http://pets.fzu.cz/). The tools are currently developed by Paul Klar (University of Bremen). Note that Paul Klar is **not** a developer of [Jana2020](http://jana.fzu.cz/) and [PETS2](http://pets.fzu.cz/). 
+A collection of tools to read, update, write, and call files related to the software programs [Jana2020](http://jana.fzu.cz/) and [PETS2](http://pets.fzu.cz/). The tools of this repository are currently developed by Paul Klar (University of Bremen).
+
+Note that Paul Klar is **not** a developer of [Jana2020](http://jana.fzu.cz/) and [PETS2](http://pets.fzu.cz/). 
 
 # Contact
 Paul Klar, University of Bremen
@@ -76,6 +78,8 @@ Refinement runtime:
 - runtime: Jana2020 refinement runtime analysis
 
 ## Planned
+Many of the tools that are planned to be implemented are available at [https://github.com/pbklar/jana_tools_archive].
+
 - Jana2020
     - batch modify Jana refinement files
     - command-line based call of JANA
