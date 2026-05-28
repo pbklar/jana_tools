@@ -31,7 +31,7 @@ git clone https://github.com/pbklar/jana_tools.git
 ```
 
 
-#Preliminary usage guide
+# Preliminary usage guide
 In some better future, this section will move to readthedocs using Sphinx. Until then:
 
 After installation a script called jana-tools.exe (on Windows) is available. If the PATH variables are properly set, this tool can be called from any folder.
